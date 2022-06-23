@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+        <style>
+            ul {
+                list-style-type: none;
+            }
+            li {
+                display: block;
+                width: 50%;
+                margin: 5px;
+                padding: 5px;
+                text-align: center;
+                color: black;
+                border: 1px solid rgba(0, 0, 0, 0.125);
+                border-radius: 0.5rem;
+            }
+            pre {
+                margin-top: 20px;
+                color: black;
+                border: 1px solid rgba(0, 0, 0, 0.125);
+                border-radius: 0.5rem;
+                height: 300px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a href="#" onclick="get('/items/1')">Получить товар по ID (id=1) (GET)</a></li>
+            <li><a href="#" onclick="post()">Получить товар по ID (самая последняя версия) (POST)</a></li>
+            <li><a href="#" onclick="get('/category')">Получить все категории (GET)</a></li>
+            <li><a href="#" onclick="get('/category/1')">Получить категорию по ID (id=1) (минимальная, максимальная и средняя цены) (GET)</a></li>
+        </ul>
+        <pre><code class="language-plaintext" id="response"></code></pre>
+
+        <script>
+            function get(url) {
+                fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    document.getElementById('response').innerText = JSON.stringify(res)
+                })
+            }
+            function post() {
+                let data = {
+                        name: 'iPhone'
+                    },
+                    req = new Request('/items', {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                        headers: new Headers({
+                            'Content-Type': 'application/json; charset=UTF-8'
+                        })
+                    })
+
+                    fetch(req)
+                    .then(res => res.json())
+                    .then(res => {
+                        document.getElementById('response').innerText = JSON.stringify(res)
+                    })
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "62b359ebf51f3bd4d4cc5e07"
+  },
+  "id": 1,
+  "name": "iPhone",
+  "price": 450,
+  "added": {
+    "$date": {
+      "$numberLong": "1655921131715"
+    }
+  },
+  "version": 1,
+  "cat": [
+    "Apple"
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b35af441adee70a2a044e3"
+  },
+  "id": 2,
+  "name": "iPhone",
+  "price": 233,
+  "added": {
+    "$date": {
+      "$numberLong": "1655921396810"
+    }
+  },
+  "version": 2,
+  "cat": [
+    "Mobile",
+    "Apple"
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b35b3af70a1925daa30f21"
+  },
+  "id": 3,
+  "name": "iPhone",
+  "price": 140,
+  "added": {
+    "$date": {
+      "$numberLong": "1655921466076"
+    }
+  },
+  "version": 3,
+  "cat": [
+    "Mobile",
+    "Apple"
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62b35e2742388dc4a7b325b8"
+  },
+  "id": 4,
+  "name": "Texet",
+  "price": 640,
+  "added": {
+    "$date": {
+      "$numberLong": "1655922215384"
+    }
+  },
+  "version": 1,
+  "cat": [
+    "Mobile",
+    "Texet",
+    "Metal",
+    "Black",
+    "Tablet"
+  ],
+  "__v": 0
+}]
