@@ -42,9 +42,9 @@ mongoose.connect('mongodb://localhost:27017/data').then(async db => {
     */
     app.get('/category', (req, res) => {
         Category.find((err, data) => {  // Получаем категории
-            let arr = []
-                data.forEach(e => arr.push({ id: e.id, name: e.name, items: e.items }))
-                res.json(arr)
+            let arr = []    // Дефайним пустой массив
+                data.forEach(e => arr.push({ id: e.id, name: e.name, items: e.items })) // Добавляем в 'arr' интересующие нас данные
+                res.json(arr)  // Отправляем в JSONе
         })
     })
 
@@ -154,7 +154,7 @@ mongoose.connect('mongodb://localhost:27017/data').then(async db => {
             cat = {
                 id: id,
                 name: obj.name,
-                items: items.filter(e => e.cat.includes(obj.name)).map(e => e.id) // В items запихиваем ID всех товаров, у которых в категориях указано название добавляемой категории
+                items: items.filter(e => e.cat.includes(obj.name)).map(e => e.id) // В 'items' запихиваем ID всех товаров, у которых в категориях указано название добавляемой категории
             }
             Category.create(cat)   // Добавляем в базу
             console.log(`•  Категория "${cat.name}" добавлена! -- ID: ${cat.id} --`)   // Выводим в консоль результат выполнения
